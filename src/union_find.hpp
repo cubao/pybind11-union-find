@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <algorithm>
 #include <map>
 #include <numeric>
 #include <string>
@@ -64,6 +65,9 @@ struct UnionFind
         throw std::invalid_argument("something went wrong, node: " +
                                     std::to_string(x));
     }
+
+    std::vector<int> parent_() const { return parent; }
+    std::vector<int> rank_() const { return rank; }
 
   private:
     std::vector<int> parent;

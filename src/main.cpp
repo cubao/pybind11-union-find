@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include <pybind11/stl_bind.h>
+#include <pybind11/stl.h>
 
 using namespace pybind11::literals;
 
@@ -10,19 +10,19 @@ using namespace pybind11::literals;
 
 namespace py = pybind11;
 
-PYBIND11_MAKE_OPAQUE(std::vector<int>);
-PYBIND11_MAKE_OPAQUE(std::vector<std::vector<int>>);
-
 PYBIND11_MODULE(pybind11_union_find_, m)
 {
-    py::bind_vector<std::vector<int>>(m, "VectorInt");
-    py::bind_vector<std::vector<std::vector<int>>>(m, "VectorVectorInt");
-
     py::class_<UnionFind>(m, "UnionFind", py::module_local())
         .def(py::init<int>(), "n"_a)
+        //
         .def("find", &UnionFind::find, "x"_a)
         .def("union", &UnionFind::_union, "x"_a, "y"_a)
+        //
         .def("groups", &UnionFind::groups)
+        .def("group_of", &UnionFind::group_of)
+        //
+        .def_property_readonly("parent", &UnionFind::parent_)
+        .def_property_readonly("rank", &UnionFind::rank_)
         //
         ;
 

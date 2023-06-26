@@ -7,6 +7,7 @@ def test_main():
 
 
 for UnionFind in [PythonUnionFind, PybindUnionFind]:
+    print(UnionFind.__name__)
     uf = UnionFind(5)
     uf.union(0, 2)
     uf.union(1, 3)
@@ -18,6 +19,6 @@ for UnionFind in [PythonUnionFind, PybindUnionFind]:
     assert uf.find(4) == 0
     groups = uf.groups()
     assert groups == [[0, 2, 4], [1, 3]]
-
-
-print()
+    assert uf.group_of(2) == [0, 2, 4]
+    assert uf.parent == [0, 1, 0, 1, 0]
+    assert uf.rank == [1, 1, 0, 0, 0]
