@@ -3,7 +3,6 @@ from pybind11_union_find_ import __version__  # noqa: F401
 
 
 class PythonUnionFind:
-
     def __init__(self, n: int):
         self.parent = np.array(list(range(n)))
         self.rank = np.array([0] * n)
@@ -36,4 +35,4 @@ class PythonUnionFind:
         for g in self.groups():
             if x in g:
                 return g
-        raise Exception(f'something went wrong, node: {x}')
+        raise Exception(f"something went wrong, node: {x}")
