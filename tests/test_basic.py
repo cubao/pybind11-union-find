@@ -4,7 +4,7 @@ from pybind11_union_find import __version__
 
 
 def test_version():
-    assert __version__ == "0.0.1"
+    assert __version__ == "0.0.2"
 
 
 def test_identical_API():
