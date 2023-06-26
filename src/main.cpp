@@ -1,39 +1,30 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/stl_bind.h>
+
+using namespace pybind11::literals;
+
+#include "union_find.hpp"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
 
-int add(int i, int j) { return i + j; }
-
 namespace py = pybind11;
 
-PYBIND11_MODULE(pybind11_cubao_cmake_example, m)
+PYBIND11_MAKE_OPAQUE(std::vector<int>);
+PYBIND11_MAKE_OPAQUE(std::vector<std::vector<int>>);
+
+PYBIND11_MODULE(pybind11_union_find_, m)
 {
-    m.doc() = R"pbdoc(
-        Pybind11 example plugin
-        -----------------------
+    py::bind_vector<std::vector<int>>(m, "VectorInt");
+    py::bind_vector<std::vector<std::vector<int>>>(m, "VectorVectorInt");
 
-        .. currentmodule:: cmake_example
-
-        .. autosummary::
-           :toctree: _generate
-
-           add
-           subtract
-    )pbdoc";
-
-    m.def("add", &add, R"pbdoc(
-        Add two numbers
-
-        Some other explanation about the add function.
-    )pbdoc");
-
-    m.def(
-        "subtract", [](int i, int j) { return i - j; }, R"pbdoc(
-        Subtract two numbers
-
-        Some other explanation about the subtract function.
-    )pbdoc");
+    py::class_<UnionFind>(m, "UnionFind", py::module_local())
+        .def(py::init<int>(), "n"_a)
+        .def("find", &UnionFind::find, "x"_a)
+        .def("union", &UnionFind::_union, "x"_a, "y"_a)
+        .def("groups", &UnionFind::groups)
+        //
+        ;
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
