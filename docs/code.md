@@ -1,42 +1,26 @@
 # code
 
-GitHub: [cmake-example](https://github.com/cubao/cmake_example)
-
-## CMakeLists.txt
-
-```cmake
-{%
-   include-markdown "../CMakeLists.txt"
-   comments=false
-%}
-```
-
-## src/main.cpp
+## src/union_find.hpp
 
 ```cpp
 {%
-   include-markdown "../src/main.cpp"
+   include-markdown "../src/union_find.hpp"
    comments=false
 %}
 ```
 
-## setup.py
-
-<details>
-  <summary>code</summary>
+## pybind11_union_find/__init__.py
 
 ```python
 {%
-   include-markdown "../setup.py"
+   include-markdown "../pybind11_union_find/__init__.py"
    comments=false
 %}
 ```
 
-</details>
-
 ## tests/test_basic.py
 
-```cpp
+```python
 {%
    include-markdown "../tests/test_basic.py"
    comments=false

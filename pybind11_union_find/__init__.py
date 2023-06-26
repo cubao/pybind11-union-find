@@ -2,14 +2,13 @@ from pybind11_union_find_ import *  # noqa: F403
 from pybind11_union_find_ import __version__  # noqa: F401
 
 from typing import List
-import numpy as np
 from collections import defaultdict
 
 
 class PythonUnionFind:
     def __init__(self, n: int):
-        self.parent = np.array(list(range(n)))
-        self.rank = np.array([0] * n)
+        self.parent = list(range(n))
+        self.rank = [0] * n
 
     def find(self, x: int) -> int:
         if self.parent[x] != x:

@@ -9,7 +9,7 @@ To upgrade `pybind11_union_find` to the latest version, use pip:
 ```bash
 pip install -U pybind11_union_find
 ```
-## Version 0.0.1 (2023-06-26)
+## Version 0.0.2 (2023-06-26)
 
 *   First release to pypi
 
