@@ -1,6 +1,6 @@
-site_name: cmake-example
-site_url: https://cmake-example.readthedocs.io
-site_description: Example pybind11 module built with a CMake-based build system.
+site_name: pybind11-union-find
+site_url: https://pybind11-union-find.readthedocs.io
+site_description: c++ version of union-find, with python binding
 site_author: district10
 
 repo_url: https://github.com/cubao/cmake_example
