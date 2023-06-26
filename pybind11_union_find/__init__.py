@@ -1,6 +1,10 @@
 from pybind11_union_find_ import *  # noqa: F403
 from pybind11_union_find_ import __version__  # noqa: F401
 
+from typing import List
+import numpy as np
+from collections import defaultdict
+
 
 class PythonUnionFind:
     def __init__(self, n: int):

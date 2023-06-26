@@ -16,7 +16,7 @@ struct UnionFind
 
     int find(int x)
     {
-        while (parent[x] != x) {
+        if (parent[x] != x) {
             parent[x] = find(parent[x]);
         }
         return parent[x];
