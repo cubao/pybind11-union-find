@@ -36,4 +36,4 @@ class PythonUnionFind:
         for g in self.groups():
             if x in g:
                 return g
-        assert x >= len(self.parent), f"something weng wrong, node: {x}"
+        raise Exception(f'something went wrong, node: {x}')
